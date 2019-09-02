@@ -1,5 +1,6 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect
+ } from "react-router-dom";
 import Login from "../Views/Login";
 import Protected from "./Protected";
 
@@ -10,6 +11,8 @@ class Main extends React.Component {
           <Route exact path="/" component={Login}></Route>
           {/* Ruta protegida */}
           <Route exact path="/inicio" component={Protected}></Route>
+          <Route exact path="/modulo" component={Protected} />
+          <Route render={() => <Redirect to="/" />} />
         </Switch>
     )
   }

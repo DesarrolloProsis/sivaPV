@@ -4,7 +4,13 @@
   background-size:  60% auto !important;
  
 }
+.btn-height{
+  padding: 5rem;
 
+}
+.justify-middle{
+  vertical-align: middle;
+}
 :root {
     --input-padding-x: 1.5rem;
     --input-padding-y: 0.75rem;

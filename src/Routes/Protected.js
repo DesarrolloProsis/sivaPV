@@ -1,13 +1,19 @@
 import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route, Redirect, Switch } from "react-router-dom";
 import Inicio from "../Views/Inicio";
+import Modulo from "../Views/Modulo";
 class Protected extends React.Component {
     state = {
-        auth: false
+        auth: true
     }
     render() {
         return (
-            <Route render={() => (this.state.auth ? (<Inicio />) : (<Redirect to="/" />))} />
+            <Switch>
+                <Route path="/inicio" render={() => (this.state.auth ? (<Inicio />) : (<Redirect to="/" />))} />
+                <Route path="/modulo" render={() => (this.state.auth ? (<Modulo />) : (<Redirect to="/" />))} />
+            </Switch>
+
+
         )
     }
 }

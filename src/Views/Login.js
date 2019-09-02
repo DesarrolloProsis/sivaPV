@@ -30,11 +30,11 @@ class Login extends React.Component {
                               id="inputPassword"
                               className="form-control form-space"
                               placeholder="Password"
-                              autoFocus
+                             
                             />
                             <label htmlFor="inputPassword">Contraseña</label>
                           </div> 
-                          <a href="/inicio" className="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2 botoninicio-verde" exact to="/Inicio">
+                          <a href="/inicio" className="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2 botoninicio-verde" >
                           iniciar
                           </a>
                         
