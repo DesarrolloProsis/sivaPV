@@ -1,6 +1,6 @@
 import React from "react";
 import "./Login.css";
-class Login extends React.Component { 
+class Login extends React.Component {
   render() {
     return (
       <div>
@@ -15,29 +15,17 @@ class Login extends React.Component {
                       <h3 className="login-heading mb-4">¡Bienvenido!</h3>
                       <form>
                         <div className="form-label-group ">
-                          <input
-                            type="email"
-                            id="inputEmail"
-                            className="form-control "
-                            placeholder="Email address"
-                            autoFocus
-                          />
+                          <input type="email" id="inputEmail" className="form-control" placeholder="Email address" autoFocus/>
                           <label htmlFor="inputEmail" className="">Correo Electrónico</label>
-                          </div>
-                          <div className="form-label-group">
-                            <input
-                              type="password"
-                              id="inputPassword"
-                              className="form-control form-space"
-                              placeholder="Password"
-                             
-                            />
-                            <label htmlFor="inputPassword">Contraseña</label>
-                          </div> 
-                          <a href="/inicio" className="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2 botoninicio-verde" >
+                        </div>
+                        <div className="form-label-group">
+                          <input type="password" id="inputPassword" className="form-control form-space" placeholder="Password" />
+                          <label htmlFor="inputPassword">Contraseña</label>
+                        </div>
+                        <a href="/inicio" className="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2 botoninicio-verde" >
                           iniciar
                           </a>
-                        
+
                       </form>
                     </div>
                   </div>

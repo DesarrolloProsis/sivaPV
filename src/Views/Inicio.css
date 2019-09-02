@@ -12,3 +12,11 @@
     font-size: 28px;
     border-color: #00a73c 
 }
+.bg{
+    min-height: 100vh;
+    background: url(../bg.jpg) no-repeat center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }

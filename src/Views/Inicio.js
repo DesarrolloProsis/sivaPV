@@ -6,7 +6,7 @@ class Inicio extends React.Component {
 
     render() {
         return (
-            <section>
+            <div className="bg">
                 <div className="container py-5">
                     <div className="row justify-content-md-center py-5">
                         <div className="col-md-7"><Link className="btn btn-primary btn-lg btn-block btn-height bg-color" to="/modulo">MOVIMIENTOS</Link></div>
@@ -15,7 +15,7 @@ class Inicio extends React.Component {
                         <div className="col-md-7 justify-middle"><Link className="btn btn-primary btn-lg btn-block btn-height bg-color-2" to="/recargas">RECARGA</Link></div>
                     </div>
                 </div>
-            </section>
+            </div>
 
 
         )
