@@ -22,10 +22,7 @@ class Login extends React.Component {
                           <input type="password" id="inputPassword" className="form-control form-space" placeholder="Password" />
                           <label htmlFor="inputPassword">Contraseña</label>
                         </div>
-                        <a href="/inicio" className="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2 botoninicio-verde" >
-                          iniciar
-                          </a>
-
+                        <a href="/inicio" className="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2 botoninicio-verde" >iniciar</a>
                       </form>
                     </div>
                   </div>
