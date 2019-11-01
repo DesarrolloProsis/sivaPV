@@ -4,7 +4,7 @@ import logo from "./SiVAwhite.png";
 import Button from 'react-bootstrap/Button';
 class Navbar extends React.Component {
   state = {
-    auth: true
+    auth: false
   }
   render() {
     const isAuth = this.state.auth;

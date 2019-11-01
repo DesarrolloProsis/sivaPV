@@ -1,8 +1,8 @@
 .imp-style{
-float: right;
-cursor: pointer;
+float: right !important;
+cursor: pointer !important;
 }
 .header{
-    background-color:  #00a73c;
-    color: white;
+    background-color:  #00a73c !important;
+    color: white !important;
 }

@@ -5,7 +5,7 @@
  
 }
 .btn-height{
-  padding: 5rem;
+  padding: 5rem !important;
 
 }
 .justify-middle{
@@ -33,10 +33,11 @@
   }
   
   .btn-login {
-    font-size: 0.9rem;
-    letter-spacing: 0.05rem;
-    padding: 0.75rem 1rem;
-    border-radius: 2rem;
+    font-size: 0.9rem !important;
+    letter-spacing: 0.05rem !important;
+    padding: 0.75rem 1rem !important;
+    border-radius: 2rem !important;
+    color: white !important;
   }
   
   .form-label-group {
