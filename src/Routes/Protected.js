@@ -6,19 +6,19 @@ import Cookies from 'universal-cookie';
 import axios from "axios";
 class Protected extends React.Component {
     state = {
-       auth:null
+       auth:true
     }
     UNSAFE_componentWillMount() {
         const cookieget = new Cookies();
-        var data = `"${cookieget.get('token')}"`
-        var config = {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json' 
-              }
-        } 
-        console.log(data)
-        axios.post("http://192.168.0.71:8081/api/auth/validateToken",config, data)
+        var cookie = `${cookieget.get('token')}`
+        var numCliente = `${cookieget.get('numCliente')}`
+        var data = {
+            "id":"0",
+            "cliente":`${numCliente}`,
+            "fechaGeneracion":"10/05/2000",
+            "webToken":`${cookie}`
+        }
+        axios.post("http://192.168.0.71:8081/api/auth/validateToken", data)
             .then(res => {
                 if (res) {
                     this.setState({
@@ -27,44 +27,21 @@ class Protected extends React.Component {
                 }
             })
             .catch(err => {
+                console.log("fallo!")
                 console.log(err);
                 this.setState({
                     auth: false
                 })
             })
-        // if (cookieget.get('token') !== undefined) {
-        //     this.setState({
-        //         auth: true
-        //     })
-        // } else {
-        //     this.setState({
-        //         auth: false
-        //     })
-        // }
-    }
+        }
 
     render() {
-        // const cookieget = new Cookies();
-        // var data = `${cookieget.get('token')}`
-        // axios.post("192.168.0.71:8081/api/auth/validateToken", data)
-        //     .then(res => {
-        //         if (res) {
-        //             this.setState({
-        //                 auth: true
-        //             })
-        //         }
-        //     })
-        //     .catch(err => {
-        //         this.setState({
-        //             auth: false
-        //         })
-        //     })
-   
+    
 
         return (
             <Switch>
-                <Route path="/inicio" render={() => (this.state.auth ? (<Inicio />) : (<Redirect to="/" />))} />
-                <Route path="/modulo" render={() => (this.state.auth ? (<Modulo />) : (<Redirect to="/" />))} />
+                <Route path="/inicio" render={() => (this.state.auth === true ? (<Inicio />) : (<Redirect to="/" />))} />
+                <Route path="/modulo" render={() => (this.state.auth === true ? (<Modulo />) : (<Redirect to="/" />))} />
             </Switch>
 
         )

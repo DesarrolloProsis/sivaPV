@@ -1,8 +1,8 @@
 import React from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
 import Cookies from 'universal-cookie';
+import Navbar from "../Components/Navbar/Navbar";
 // import store from "../Redux/store";
 import axios from "axios";
 class Login extends React.Component {
@@ -10,7 +10,8 @@ class Login extends React.Component {
     user: "",
     pass: "",
     token: "",
-    error:false
+    error:false,
+    numCliente:""
   }
   handleChangeUser = (event) => {
     this.setState({ user: event.target.value });
@@ -38,11 +39,12 @@ class Login extends React.Component {
       .then((res) => {
         this.setState({
           token: res.data.token,
-          numCliente:res.data
+          numCliente:res.data.numeroCliente
 
         })
         const cookies = new Cookies();
         cookies.set('token',this.state.token);
+        cookies.set('numCliente',this.state.numCliente);
         this.props.history.push("/inicio");
       })
       .catch((err) => {
@@ -65,6 +67,7 @@ class Login extends React.Component {
     }
     return (
       <div>
+        <Navbar></Navbar>
         <div className="container-fluid">
           <div className="row no-gutter">
             <div className="d-none d-md-flex col-md-4 col-lg-6 bg-image" />
@@ -74,9 +77,6 @@ class Login extends React.Component {
                   <div className="row">
                     <div className="col-md-9 col-lg-8 mx-auto">
                       <h3 className="login-heading mb-4">¡Bienvenido!</h3>
-                      {
-                        this.state.user + " " + this.state.pass
-                      }
                       <form>
                       {errorMessage()}
                         <div className="form-label-group ">
@@ -103,9 +103,5 @@ class Login extends React.Component {
     );
   }
 }
-const mapStateToProps = (state) => {
-  return {
-    results: state.results
-  }
-};
-export default connect(mapStateToProps)(Login);
+
+export default Login;

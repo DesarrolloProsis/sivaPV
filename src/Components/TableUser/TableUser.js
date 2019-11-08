@@ -3,104 +3,81 @@ import Table from 'react-bootstrap/Table';
 import "./TableUser.css";
 
 function TableUser(props) {
+
+
+
+  if (props.datos) {
     return (
       <div className="res-height">
         <Table size="sm" striped bordered hover responsive className="table-res ">
+          <thead className="table-color">
+            <tr>
+              <th>Concepto</th>
+              <th>Plaza</th>
+              <th>Fecha</th>
+              <th>Monto</th>
+              <th>Saldo Restante</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {props.datos.map(mov => {
+              return (<tr>{
+                mov.map(ok => {
+                  return (
+                    <td>{ok}</td>
+                  )
+                })
+              }</tr>)
+            })}
+
+
+          </tbody>
+        </Table>
+      </div>
+
+    );
+  } else if (props.datos === false) {
+    return (
+      <div className="res-height">
+        <Table size="sm" striped bordered hover responsive className="table-res ">
+          <thead className="table-color">
+            <tr>
+              <th>Concepto</th>
+              <th>Plaza</th>
+              <th>Fecha</th>
+              <th>Saldo</th>
+              <th>Saldo Final</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            Sin datos...
+
+          </tbody>
+        </Table>
+      </div>
+
+    );
+  } else {
+    return (<div className="res-height">
+      <Table size="sm" striped bordered hover responsive className="table-res ">
         <thead className="table-color">
           <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
+            <th>Concepto</th>
+            <th>Plaza</th>
+            <th>Fecha</th>
+            <th>Saldo</th>
+            <th>Saldo Final</th>
           </tr>
         </thead>
-        <tbody >
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td colSpan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td colSpan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td colSpan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td colSpan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td colSpan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td colSpan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td colSpan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td colSpan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td colSpan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-           <tr>
-            <td>3</td>
-            <td colSpan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-           <tr>
-            <td>3</td>
-            <td colSpan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-           <tr>
-            <td>3</td>
-            <td colSpan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-           <tr>
-            <td>3</td>
-            <td colSpan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-           <tr>
-            <td>3</td>
-            <td colSpan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
+        <tbody>
+          Sin datos...
+      </tbody>
       </Table>
-      </div>
-    
-      );
+    </div>)
+  }
+
+
 }
 export default TableUser;

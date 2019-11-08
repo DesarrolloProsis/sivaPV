@@ -9,6 +9,7 @@ import Col from 'react-bootstrap/Col';
 import sivalogo from "../sivalogo.png";
 import Modal from 'react-bootstrap/Modal';
 import axios from "axios";
+import Navbar from "../Components/Navbar/Navbar";
 // import Cookies from 'universal-cookie';
 class Register extends React.Component {
     state = {
@@ -69,7 +70,7 @@ class Register extends React.Component {
             }
             axios.post("http://192.168.0.71:8081/api/auth/register", data)
                 .then(res => {
-                    this.props.history.push("/inicio");
+                    this.props.history.push("/");
                 })
                 .catch(err => {
                     console.log("REQUEST ERROR: ", err);
@@ -101,9 +102,9 @@ class Register extends React.Component {
                                 <h5 className="valpass">{this.state.valPass}</h5>
                                 <Form.Group>
                                     <Form.Label>Contraseña</Form.Label>
-                                    <Form.Control autoComplete="new-pass" type="password" placeholder="Escribe tu Contraseña" onChange={this.handleChangePass1} />
+                                    <Form.Control  type="password" placeholder="Escribe tu Contraseña" onChange={this.handleChangePass1} />
                                     <Form.Label>Confirmar Contraseña</Form.Label>
-                                    <Form.Control autoComplete="new-pass-confirm" type="password" placeholder="Confirma tu Contraseña" onChange={this.handleChangePass2} />
+                                    <Form.Control  type="password" placeholder="Confirma tu Contraseña" onChange={this.handleChangePass2} />
                                 </Form.Group>
                             </Form>
                         </Modal.Body>
@@ -117,6 +118,7 @@ class Register extends React.Component {
         }
         return (
             <div>
+                <Navbar></Navbar>
                 <Container fluid className="py-5 head-margin-top">
                     <Row className="justify-content-md-center">
                         <Col xs="12" sm="12" md="9" lg="6" xl="6">

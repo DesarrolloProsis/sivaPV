@@ -35,3 +35,9 @@ font-size: 12px !important;
 margin-bottom: 0 !important;
 margin-top: 4px !important;
 }
+.button-buscar{
+    width: 100%;
+    margin-top: 20px;
+    background-color: #5DADE2 !important;
+    border-color:#5DADE2 !important ;
+}

@@ -1,54 +1,50 @@
 import React from "react";
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import CardInfo from "../Components/CardInfo/CardInfo";
-import Col from 'react-bootstrap/Col';
-import CardModule from "../Components/CardModule/CardModule";
-// import axios from "axios";
-import Cookies from 'universal-cookie';
-class Modulo extends React.Component {
-    componentDidMount() {
-        
-        const cookieget = new Cookies();
-        console.log(`${cookieget.get('token')}`)
-        // var axiosconfig = {
-        //     headers: {
-        //         'Authorization': `Bearer ${cookieget.get('token')}`,
-        //     }
-        // }
-        // axios.post("http://192.168.0.71:8081/api/clients/190612881604", axiosconfig)
-        //     .then((res) => {
-        //         this.setState({
-        //             token: res.data.token,
-        //             numCliente: res.data
 
-        //         })
-        //         const cookies = new Cookies();
-        //         cookies.set('token', this.state.token);
-        //         this.props.history.push("/inicio");
-        //     })
-        //     .catch((err) => {
-        //         console.log("REQUEST ERROR: ", err);
-        //         this.setState({
-        //             error: true
-        //         })
-        //     });
+import axios from "axios";
+import Cookies from 'universal-cookie';
+import NavbarLogged from "../Components/Navbar/NavbarLogged";
+import CardModuleFilters from "../Components/CardModule/CardModuleFilters";
+// import { ReactComponent as Imprimir } from './24px.svg';
+import "./Modulo.css"
+class Modulo extends React.Component {
+    state = {
+        cuentas: [],
+        tags: []
     }
+    componentDidMount() {
+        const cookieget = new Cookies();
+        var token = `${cookieget.get('token')}`
+        var numCliente = `${cookieget.get('numCliente')}`
+        var axiosconfig = {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        }
+        axios.get(`http://192.168.0.71:8081/api/clients/${numCliente}`, axiosconfig)
+            .then(res => {
+                this.setState({
+                    cuentas: res.data.cuentas,
+                    tags: res.data.tags
+                })
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
 
     render() {
         return (
-            <Container className="py-5">
-                <Row className="py-5">
-                    <Col xl={3} lg={3} md={12} sm={12} xs={12}>
-                        <CardInfo></CardInfo>
-                    </Col>
-                    <Col xl={9} lg={9} md={12} sm={12} xs={12}>
-                        <CardModule></CardModule>
-                    </Col>
-                </Row>
+            <div>
+                <NavbarLogged></NavbarLogged>
+            <Container className="py-5" >
+                <CardModuleFilters cuentas={this.state.cuentas} tags={this.state.tags}></CardModuleFilters>
             </Container>
+            </div>
 
         )
     }
 }
 export default Modulo;
+//  <Card.Header className="header">MOVIMIENTOS<Imprimir className="imp-style"></Imprimir></Card.Header>
